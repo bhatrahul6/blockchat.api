@@ -1,0 +1,22 @@
+{
+  "name": "blockchat.api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhatrahul6/blockchat.api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhatrahul6/blockchat.api/issues"
+  },
+  "homepage": "https://github.com/bhatrahul6/blockchat.api#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
