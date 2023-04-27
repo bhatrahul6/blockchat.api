@@ -1,6 +1,6 @@
 /*  EXPRESS */
-
 const express = require('express');
+const dataController = require('./controllers/dataController')
 const app = express();
 const session = require('express-session');
 app.set('view engine', 'ejs');
@@ -10,7 +10,7 @@ app.use(session({
   saveUninitialized: true,
   secret: 'SECRET' 
 }));
-
+dataController.setDbInstance();
 app.get('/', function(req, res) {
   res.render('pages/auth');
 });

@@ -29,3 +29,8 @@ const getDummyData = async (req, res) => {
   }
 };
 
+module.exports = {
+    setDbInstance,
+    getDummyData,
+    addDummyData
+}
