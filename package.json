@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/bhatrahul6/blockchat.api#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "gun": "^0.2020.1239"
   }
 }
