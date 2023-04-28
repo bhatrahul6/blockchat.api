@@ -1,7 +1,18 @@
-/*  EXPRESS */
 const express = require('express');
-const dataController = require('./controllers/dataController')
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const config = require('./config')
+
+// Controllers
+const dataController = require('./controllers/dataController');
+
 const app = express();
+app.use(express.json());
+app.use(cors());
+app.use(bodyParser.json());
+app.use(cookieParser());
+
 const session = require('express-session');
 app.set('view engine', 'ejs');
 
@@ -10,16 +21,60 @@ app.use(session({
   saveUninitialized: true,
   secret: 'SECRET' 
 }));
-// dataController.setDbInstance();
+
 app.get('/', function(req, res) {
   res.render('pages/auth');
 });
 
-const port = process.env.PORT || 3000;
-app.listen(port , () => console.log('App listening on port ' + port));
+
+app.get('/chats', (req,res)=>{
+  res.json({
+    chats: [{
+      id: 1,
+      userName: 'Jai Singh',
+      avatar: `https://api.dicebear.com/6.x/initials/svg?seed=JaiSingh`,
+    },
+    {
+      id: 2,
+      userName: 'Anisha Singh',
+      avatar: `https://api.dicebear.com/6.x/initials/svg?seed=AnishaSingh`,
+    },
+    {
+      id: 3,
+      userName: 'Rahul Bhat',
+      avatar: `https://api.dicebear.com/6.x/initials/svg?seed=RahulBhat`,
+    },
+    {
+      id: 4,
+      userName: 'Arya Karemore',
+      avatar: `https://api.dicebear.com/6.x/initials/svg?seed=AryaKaremore`,
+    },
+    {
+      id: 5,
+      userName: 'Artistson Syngwan',
+      avatar: `https://api.dicebear.com/6.x/initials/svg?seed=ArtistsonSyngwan`,
+    },
+    {
+      id: 6,
+      userName: 'Dhiraj',
+      avatar: `https://api.dicebear.com/6.x/initials/svg?seed=Dhiraj`,
+    }]
+  });
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*  PASSPORT SETUP  */
-
 const passport = require('passport');
 var userProfile;
 
@@ -64,3 +119,7 @@ app.get('/auth/google/callback',
     // Successful authentication, redirect success.
     res.redirect('/success');
   });
+
+
+
+app.listen(config.port , () => console.log('App listening on port ' + config.port));

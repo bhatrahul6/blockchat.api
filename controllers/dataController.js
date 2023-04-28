@@ -12,7 +12,7 @@ const getPeers = () => {
 const addDummyData = async (req, res) => {
   try {
     gun.get("users").get(2).put(req.body);
-    res.sned("Added");
+    res.send("Added");
   } catch (error) {
     res.status(500).json({ error: "An error occurred while fetching data" });
   }
