@@ -10,7 +10,7 @@ app.use(session({
   saveUninitialized: true,
   secret: 'SECRET' 
 }));
-dataController.setDbInstance();
+// dataController.setDbInstance();
 app.get('/', function(req, res) {
   res.render('pages/auth');
 });
